@@ -23,15 +23,11 @@
                 return "Paper";
             } else if (playerChoice.toLowerCase() == "scissors") {
                 return "Scissors";
-            } else {
-                return "Invalid input";
             };
         };
 
         playRound = (playerSelection, computerSelection) => {
-            if (playerSelection == "Invalid input") {
-                return "Invalid input";
-            } else if (playerSelection === computerSelection) {
+            if (playerSelection === computerSelection) {
                 return "draw";
             } else if (playerSelection === "Rock" && computerSelection === "Paper") {
                 return "lose";
