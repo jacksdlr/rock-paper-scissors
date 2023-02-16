@@ -15,6 +15,20 @@
                 return "Scissors";
             };
         };
+        getPlayerChoice = () => {
+            let playerChoice = prompt("Rock, paper, or scissors. Which do you choose?")
+            console.log(playerChoice)
+            if (playerChoice.toLowerCase() == "rock") {
+                return "Rock";
+            } else if (playerChoice.toLowerCase() == "paper") {
+                return "Paper";
+            } else if (playerChoice.toLowerCase() == "scissors") {
+                return "Scissors";
+            } else {
+                return "Invalid input"
+            }
+        }
+        getPlayerChoice()
         console.log(getComputerChoice())
     </script>
     <title>rock paper scissors</title>
