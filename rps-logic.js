@@ -8,13 +8,13 @@ getComputerChoice = () => {
         return "Scissors";
     };
 };
-getPlayerChoice = () => {
-    let playerChoice = prompt("Rock, paper, or scissors. Which do you choose?")
-    if (playerChoice.toLowerCase() == "rock") {
+getPlayerChoice = (playerChoice) => {
+    //let playerChoice = prompt("Rock, paper, or scissors. Which do you choose?")
+    if (playerChoice == "rock") {
         return "Rock";
-    } else if (playerChoice.toLowerCase() == "paper") {
+    } else if (playerChoice == "paper") {
         return "Paper";
-    } else if (playerChoice.toLowerCase() == "scissors") {
+    } else if (playerChoice == "scissors") {
         return "Scissors";
     };
 };
@@ -37,11 +37,11 @@ playRound = (playerSelection, computerSelection) => {
     };
 };
 
-game = (playerSelection) => {
+game = (button) => {
     let playerScore = 0;
     let computerScore = 0;
-    //for (let i = 0; i < 5; i++) {
         const computerSelection = getComputerChoice();
+        const playerSelection = getPlayerChoice(button)
         if (playRound(playerSelection, computerSelection) == "win") {
             playerScore++;
             console.log(`You win! ${playerSelection} beats ${computerSelection}`);
@@ -51,7 +51,6 @@ game = (playerSelection) => {
         } else if (playRound(playerSelection, computerSelection) == "draw") {
             console.log(`Draw!`);
         }
-    //}
     console.log(`Player: ${playerScore}     Computer: ${computerScore}`)
 }
 
@@ -59,6 +58,6 @@ const buttons = document.querySelectorAll("button")
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        console.log("game(button.id)")
+        console.log(game(button.id))
     })
 })
