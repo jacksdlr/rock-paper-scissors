@@ -53,19 +53,29 @@ winnerFound = (winner) => {
     computerScore = 0;
 }
 
+gameReset = () => {
+    const winnerAnnouncer = document.querySelector(".winner")
+    if (winnerAnnouncer) {
+        results.removeChild(winnerAnnouncer)
+    }
+}
+
 game = (button) => {
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice(button)
-        if (playRound(playerSelection, computerSelection) == "win") {
-            playerScore++;
-            round.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
-        } else if (playRound(playerSelection, computerSelection) == "lose") {
-            computerScore++;
-            round.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
-        } else if (playRound(playerSelection, computerSelection) == "draw") {
-            round.textContent = `Draw!`;
-        }
+    gameReset()
+
+    const computerSelection = getComputerChoice();
+    const playerSelection = getPlayerChoice(button)
+    if (playRound(playerSelection, computerSelection) == "win") {
+        playerScore++;
+        round.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+    } else if (playRound(playerSelection, computerSelection) == "lose") {
+        computerScore++;
+        round.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+    } else if (playRound(playerSelection, computerSelection) == "draw") {
+        round.textContent = `Draw!`;
+    }
     score.textContent = `Player: ${playerScore}     Computer: ${computerScore}`
+    
     if (playerScore === 5) {
         winnerFound("PLAYER")
     } else if (computerScore === 5) {
