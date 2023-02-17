@@ -55,13 +55,10 @@ game = (playerSelection) => {
     console.log(`Player: ${playerScore}     Computer: ${computerScore}`)
 }
 
-game()
-
 const buttons = document.querySelectorAll("button")
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        console.log("check")
-        console.log(game(button.id))
+        console.log("game(button.id)")
     })
 })
