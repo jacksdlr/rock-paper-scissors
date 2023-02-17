@@ -37,11 +37,21 @@ playRound = (playerSelection, computerSelection) => {
     };
 };
 
+const results = document.querySelector(".results")
 const round = document.querySelector(".round")
 const score = document.querySelector(".score")
 
 let playerScore = 0;
 let computerScore = 0;
+
+winnerFound = (winner) => {
+    const winnerAnnouncer = document.createElement("h1")
+    winnerAnnouncer.classList.add("winner")
+    winnerAnnouncer.textContent = `WINNER: ${winner}!`;
+    results.appendChild(winnerAnnouncer)
+    playerScore = 0;
+    computerScore = 0;
+}
 
 game = (button) => {
         const computerSelection = getComputerChoice();
@@ -56,6 +66,11 @@ game = (button) => {
             round.textContent = `Draw!`;
         }
     score.textContent = `Player: ${playerScore}     Computer: ${computerScore}`
+    if (playerScore === 5) {
+        winnerFound("PLAYER")
+    } else if (computerScore === 5) {
+        winnerFound("COMPUTER")
+    }
 }
 
 const buttons = document.querySelectorAll("button")
