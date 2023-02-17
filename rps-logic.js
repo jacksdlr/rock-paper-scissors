@@ -48,6 +48,11 @@ winnerFound = (winner) => {
     const winnerAnnouncer = document.createElement("h1")
     winnerAnnouncer.classList.add("winner")
     winnerAnnouncer.textContent = `WINNER: ${winner}!`;
+    if (winner == "PLAYER") {
+        winnerAnnouncer.style.color = "green"
+    } else {
+        winnerAnnouncer.style.color = "red"
+    }
     results.appendChild(winnerAnnouncer)
     playerScore = 0;
     computerScore = 0;
