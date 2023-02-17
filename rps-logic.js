@@ -37,6 +37,9 @@ playRound = (playerSelection, computerSelection) => {
     };
 };
 
+const round = document.querySelector(".round")
+const score = document.querySelector(".score")
+
 game = (button) => {
     let playerScore = 0;
     let computerScore = 0;
@@ -44,14 +47,14 @@ game = (button) => {
         const playerSelection = getPlayerChoice(button)
         if (playRound(playerSelection, computerSelection) == "win") {
             playerScore++;
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            round.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
         } else if (playRound(playerSelection, computerSelection) == "lose") {
             computerScore++;
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            round.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
         } else if (playRound(playerSelection, computerSelection) == "draw") {
-            console.log(`Draw!`);
+            round.textContent = `Draw!`;
         }
-    console.log(`Player: ${playerScore}     Computer: ${computerScore}`)
+    score.textContent = `Player: ${playerScore}     Computer: ${computerScore}`
 }
 
 const buttons = document.querySelectorAll("button")
