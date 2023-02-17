@@ -40,9 +40,10 @@ playRound = (playerSelection, computerSelection) => {
 const round = document.querySelector(".round")
 const score = document.querySelector(".score")
 
+let playerScore = 0;
+let computerScore = 0;
+
 game = (button) => {
-    let playerScore = 0;
-    let computerScore = 0;
         const computerSelection = getComputerChoice();
         const playerSelection = getPlayerChoice(button)
         if (playRound(playerSelection, computerSelection) == "win") {
@@ -61,6 +62,6 @@ const buttons = document.querySelectorAll("button")
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        console.log(game(button.id))
+        game(button.id)
     })
 })
